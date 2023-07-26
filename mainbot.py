@@ -5,11 +5,6 @@ from telebot import types
 import config
 
 # 设置aria2c的RPC地址和密钥
-# aria2c_rpc_url = "http://mcat.tk:6800/jsonrpc"
-# aria2c_rpc_key = "taohuajiu6800"
-# bot = telebot.TeleBot('6485084728:AAH6aNuwvIE6CQ5Ns8aUU_4JeXKJIOmacMA')
-
-# 设置aria2c的RPC地址和密钥
 aria2c_rpc_url = config.aria2c_rpc_url
 aria2c_rpc_key = config.aria2c_rpc_key
 
