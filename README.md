@@ -20,3 +20,6 @@ services:
 ```
 
 docker-compose up -d
+
+<img src="https://telegra.ph/file/289ec39612d2827909fcc.jpg" width="180" height="320">
+
