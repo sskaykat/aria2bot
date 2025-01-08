@@ -3,6 +3,7 @@ import requests
 import json
 from telebot import types
 import config
+import subprocess
 
 # 设置aria2c的RPC地址和密钥
 aria2c_rpc_url = config.aria2c_rpc_url
@@ -237,7 +238,18 @@ def handle_aria2_status(message):
     else:
         bot.reply_to(message, '获取下载器状态出错！')
 
-
+@bot.message_handler(commands=['upload'])
+def handle_upload(message):
+    try:
+        # 执行同级目录下的 aa.py 文件
+        result = subprocess.run(['python', 'aa.py'], capture_output=True, text=True)
+        if result.returncode == 0:
+            bot.reply_to(message, '文件 aa.py 执行成功！\n' + result.stdout)
+        else:
+            bot.reply_to(message, '文件 aa.py 执行失败！\n' + result.stderr)
+    except Exception as e:
+        bot.reply_to(message, f'执行文件时发生错误: {str(e)}')
+        
 @bot.message_handler(func=lambda message: message.text == '关闭键盘')
 def handle_close_keyboard(message):
     # 创建 ReplyKeyboardRemove 对象来关闭键盘
