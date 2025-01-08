@@ -20,10 +20,10 @@ jobs:
         password: ${{ secrets.DOCKERHUB_TOKEN }} # 存储在GitHub仓库的Secrets中
 
     - name: Build Docker image
-      run: docker build -t taohuajiu/ariabottu:latest .
+      run: docker build -t taohuajiu/ariabot:latest .
       # 替换为你的Docker Hub用户名和镜像名称，latest是标签
 
     - name: Push Docker image
-      run: docker push taohuajiu/ariabottu:latest
+      run: docker push taohuajiu/ariabot:latest
       # 替换为你的Docker Hub用户名和镜像名称，latest是标签
 
