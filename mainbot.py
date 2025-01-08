@@ -244,7 +244,7 @@ def handle_aria2_status(message):
 def handle_upload(message):
     try:
         # 执行同级目录下的 aa.py 文件
-        result = subprocess.run(['python', 'aa.py'], capture_output=True, text=True)
+        result = subprocess.run(['python3', 'aa.py'], capture_output=True, text=True)
         if result.returncode == 0:
             bot.reply_to(message, '文件 aa.py 执行成功！\n' + result.stdout)
         else:
