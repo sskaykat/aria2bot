@@ -38,8 +38,9 @@ def handle_start(message):
     button5 = types.KeyboardButton('全部暂停')
     button6 = types.KeyboardButton('全部删除')
     button7 = types.KeyboardButton('下载器状态')
-    button8 = types.KeyboardButton('关闭键盘')
-    keyboard.add(button1, button2, button3, button4, button5, button6, button7, button8,)
+    button8 = types.KeyboardButton('上传文件')
+    button9 = types.KeyboardButton('关闭键盘')
+    keyboard.add(button1, button2, button3, button4, button5, button6, button7, button8, button9)
 
     # 发送欢迎消息和自定义键盘
     bot.send_message(message.chat.id, '👉欢迎使用下载机器人💓💓', reply_markup=keyboard)
@@ -238,7 +239,8 @@ def handle_aria2_status(message):
     else:
         bot.reply_to(message, '获取下载器状态出错！')
 
-@bot.message_handler(commands=['upload'])
+# @bot.message_handler(commands=['upload'])
+@bot.message_handler(func=lambda message: message.text == '上传文件')
 def handle_upload(message):
     try:
         # 执行同级目录下的 aa.py 文件
